@@ -1,5 +1,5 @@
-<div class="photos">
-  <div class="photo" *ngFor="let photo of photos">
-    <img src="{{ photo.urls.thumb }}" alt="{{ photo.alt_description }}" />
-  </div>
-</div>
+<ul class="grid">
+  <li *ngFor="let photo of photos">
+    <img src="{{ photo.urls.small }}" alt="{{ photo.alt_description }}" />
+  </li>
+</ul>

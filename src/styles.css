@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     font-family: sans-serif;
-    background-color: #fff;
-    color: #003a3a;
+    background-color: pink; /*this is the entire page background*/
 }
 
 footer {
@@ -23,7 +22,14 @@ app-entry { /* move to entry.component.css */
 app-entry-like {
   margin-right: 1em;
 }
-h2 {
+
+ h1 { /*this is the title styling */
+   font-size: 30px;
+   font-style: italic;
+   color: white;
+   text-align: center;
+ }
+ h2 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

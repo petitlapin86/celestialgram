@@ -1,3 +1,5 @@
+
+  /*
 .photos {
   display: flex;
   flex-wrap: wrap;
@@ -5,4 +7,27 @@
 
 .photo {
   flex: 0 0 25%;
+}
+ */
+
+
+/*new code below to try for grid layout*/
+
+ul.grid{
+	list-style: none;
+	width: 800px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+ul.grid li{
+	padding: 2px;
+	float:left;
+}
+
+ul.grid li img{
+	width:260px;
+	height:260px;
+	display:block;
+	border:none;
 }
