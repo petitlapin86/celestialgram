@@ -1,0 +1,8 @@
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo {
+  flex: 0 0 25%;
+}
