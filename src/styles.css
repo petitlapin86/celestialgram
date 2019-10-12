@@ -5,11 +5,43 @@
 
 body {
     font-family: 'Raleway', sans-serif; /*calling special font here*/
-    background-color: pink;
+    background-color: light-gray;
     margin: 0;
     padding: 0;
     text-align: center;
 }
+
+.heading{ /*This is the nabv bar*/
+	background-color:teal;
+	box-shadow: 0 1px 1px #ccc;
+	border-radius: 2px;
+	width: 100%;
+	padding: 10px;
+	margin: 45px auto 25px;
+	position:relative;
+	text-align:center;
+	line-height: 1;
+}
+
+
+p{ /*these are the buttons*/
+	background-color: pink;
+	width:auto;
+	height:auto;
+  padding: inherit;
+	display:inline-block;
+	text-decoration:none !important;
+	margin-right:30px;
+	border-radius:2px;
+  text-align: center;
+  color: white;
+}
+
+p.hover {
+  background-color: black;
+}
+
+/**************************************************/
 
 footer {
     clear: both;
