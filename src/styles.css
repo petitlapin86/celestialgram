@@ -1,7 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway:100&display=swap');
+/*Importing a special font from google*/
+
+/* These are my global styles*/
+
 body {
-    font-family: sans-serif;
-    background-color: pink; /*this is the entire page background*/
+    font-family: 'Raleway', sans-serif; /*calling special font here*/
+    background-color: pink;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 footer {
