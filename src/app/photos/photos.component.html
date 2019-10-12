@@ -1,5 +1,20 @@
 <ul class="grid">
   <li *ngFor="let photo of photos">
     <img src="{{ photo.urls.small }}" alt="{{ photo.alt_description }}" />
-  </li>
+
+    <!----I would like to make the remaining code toggle on or off depending on user preference--->
+    <!----Emoji Button--->
+    <div class="actions">
+    <button type="button" (click)="isLiked = !isLiked"
+    [ngClass]="{liked: isLiked}">❤️
+    </button>
+    <!---Show Comments Button-->
+<button type="button" (click)="showComments = !showComments">Comments</button>
+    </div>
+    <!----comments--->
+    <div class="comments" *ngIf="showComments"> <!--IF show comments is true then display comments--->
+        <p> I am a hardcoded comment </p> <!--create an array of hard coded comments to iterate through here-->
+    </div>
+
+</li>
 </ul>
