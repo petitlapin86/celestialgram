@@ -1,15 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PhotosModule } from './photos/photos.module';
-import { FormsModule } from '@angular/forms';
-import { PhotosCommentFormComponent } from './photos-comment-form/photos-comment-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PhotosCommentFormComponent,
   ],
   imports: [
     BrowserModule,

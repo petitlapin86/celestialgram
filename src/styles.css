@@ -232,3 +232,14 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+form {
+  margin-top: 2em;
+  padding: .5em 0;
+  width: 260px;
+}
+
+.comment {
+    padding: .5em 1em;
+    background-color: #eee;
+}

@@ -1,20 +1,49 @@
+<!-- A simple form to make searching of photos easy and configurable -->
+<div>
+  <input #photoName type="text" value="stars" placeholder="search photos" />
+  <input #photoCount type="number" value="100" placeholder="per page" />
+
+  <button (click)="searchPhotos(photoName.value, photoCount.value, 10)">
+    Search
+  </button>
+</div>
+
 <ul class="grid">
   <li *ngFor="let photo of photos">
-    <img src="{{ photo.urls.small }}" alt="{{ photo.alt_description }}" />
+    <img
+      (click)="photo.showActions = !photo.showActions"
+      src="{{ photo.urls.small }}"
+      alt="{{ photo.alt_description }}"
+    />
 
     <!----I would like to make the remaining code toggle on or off depending on user preference--->
     <!----Emoji Button--->
-    <div class="actions">
-    <button type="button" (click)="isLiked = !isLiked"
-    [ngClass]="{liked: isLiked}">❤️
-    </button>
-    <!---Show Comments Button-->
-<button type="button" (click)="showComments = !showComments">Comments</button>
-    </div>
-    <!----comments--->
-    <div class="comments" *ngIf="showComments"> <!--IF show comments is true then display comments--->
-        <p> I am a hardcoded comment </p> <!--create an array of hard coded comments to iterate through here-->
-    </div>
+    <form (submit)="onSubmit()">
+    <div *ngIf="photo.showActions" class="actions">
+      <button
+        type="button"
+        (click)="isLiked = !isLiked"
+        [ngClass]="{ liked: isLiked }"
+      >
+        ❤️
+      </button>
+      <br>
+      <!---A textarea & button to add comment to a photo-->
 
-</li>
+      <input #name type="text" placeholder="name">
+      <textarea #commentBox rows="5"></textarea>
+      <button type="button" (click)="addComment(photo.id, name.value, commentBox.value)">
+        Submit
+      </button>
+
+
+    <!----comments--->
+    <div class="comments">
+      <!-- loop through the fake comments added on a photo and display them -->
+      <p *ngFor="let comment of photo.comments">{{ comment.name }} {{ comment.comment }}</p>
+    </div>
+  </div>
+</form>
+
+  </li>
 </ul>
