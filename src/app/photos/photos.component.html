@@ -18,7 +18,7 @@
 
     <!----I would like to make the remaining code toggle on or off depending on user preference--->
     <!----Emoji Button--->
-    <form (submit)="onSubmit()">
+    <form>
     <div *ngIf="photo.showActions" class="actions">
       <button
         type="button"
@@ -29,10 +29,12 @@
       </button>
       <br>
       <!---A textarea & button to add comment to a photo-->
-
+      <div class="message">
       <input #name type="text" placeholder="name">
-      <textarea #commentBox rows="5"></textarea>
-      <button type="button" (click)="addComment(photo.id, name.value, commentBox.value)">
+      <br>
+      <textarea rows="5" #commentBox></textarea>
+      <br>
+      <button type="button" class="submit" (click)="addComment(photo.id, name.value, commentBox.value)">
         Submit
       </button>
 
@@ -42,6 +44,7 @@
       <!-- loop through the fake comments added on a photo and display them -->
       <p *ngFor="let comment of photo.comments">{{ comment.name }} {{ comment.comment }}</p>
     </div>
+  </div>
   </div>
 </form>
 

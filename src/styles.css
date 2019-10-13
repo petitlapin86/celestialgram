@@ -233,10 +233,17 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-form {
-  margin-top: 2em;
+.message {
+  margin-top: 0;
   padding: .5em 0;
   width: 260px;
+  background-color: pink;
+}
+
+.submit {
+  border-radius: 30%;
+  background-color: blue;
+
 }
 
 .comment {
