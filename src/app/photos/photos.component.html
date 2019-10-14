@@ -3,7 +3,7 @@
   <input #photoName type="text" value="stars" placeholder="search photos" />
   <input #photoCount type="number" value="100" placeholder="per page" />
 
-  <button (click)="searchPhotos(photoName.value, photoCount.value, 10)">
+  <button class="search"(click)="searchPhotos(photoName.value, photoCount.value, 10)">
     Search
   </button>
 </div>
