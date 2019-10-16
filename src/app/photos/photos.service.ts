@@ -34,9 +34,10 @@ export class PhotosService {
   //******************testing this here
   // addComment(entryId: number, comment: { name: string; comment: string }) {
   //   return this.http
-  //     .post(`/app/entries/${entryId}/comments`, comment)
-  //     .toPromise();
+  //     .post(`/app/photos/${entryId}/comments`, comment)
+    //   .toPromise();
   // }
 
-  //****************************
+
+
 }

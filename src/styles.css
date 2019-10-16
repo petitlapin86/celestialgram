@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100&display=swap');
 /*Importing a special font from google*/
 
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
 /* These are my global styles*/
 
 /* HTML5 CANVAS CUSTOM CURSOR*/
-* {  cursor: url(/triangletiny.png), url(/triangletiny.cur), url(/trianglecopy.png), auto;
+* {  cursor: url(./assets/cursor/cursor.png), url(./assets/cursor/triangletiny.cur), url(./assets/cursor/trianglecopy.png), auto;
 }
 
 body {
@@ -24,18 +26,14 @@ body {
 	position:relative;
 	text-align:center;
 	line-height: 1;
-
 }
 
 
 p{ /*these are the buttons*/
-	background-color: #e8daed;
 	width:auto;
 	height:auto;
-  padding: inherit;
 	display:inline-block;
 	text-decoration:none !important;
-	margin-right:30px;
 	border-radius:2px;
   text-align: center;
   color: white;
@@ -51,26 +49,16 @@ footer {
     clear: both;
 }
 
-app-entry { /* move to entry.component.css */
-    display: block;
-    padding: 1em;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .actions {
     padding: 1em 0;
 }
 
-app-entry-like {
-  margin-right: 1em;
-}
-
  h1 { /*this is the title styling */
-   font-size: 30px;
-   font-style: italic;
-   color: white;
+   font-size: 50px;
+   color: #add9d7;
    text-align: center;
+   font-family: neon;
+   text-shadow: 0 0 1vw #0c5566;
  }
  h2 {
     white-space: nowrap;
@@ -86,71 +74,11 @@ button:focus {
     color: #00aaff;
 }
 
-figure {
-    overflow: hidden;
-    position: relative;
-    margin: 0;
-}
-
-figcaption {
-    color: #fff;
-    background-color: rgba(0,0,0,0.5);
-    font-size: 1.2em;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
 img {
     display: block;
     max-width: 100%;
     min-width: 100%;
     height: auto;
-}
-
-.comments.hidden {
-    max-height: 0;
-}
-
-.comments {
-    overflow: hidden;
-    max-height: 1000px;
-    -webkit-transition: max-height 0.8s;
-    -moz-transition: max-height 0.8s;
-    transition: max-height 0.8s;
-}
-
-.comment {
-    padding: .5em 1em;
-    background-color: #eee;
-}
-
-.comment.odd {
-    background-color: #ccc;
-}
-app-entry-comment-form form {
-  margin-top: 2em;
-}
-app-entry-comment-form div {
-    padding: .5em 0;
-}
-
-label {
-    display: block;
-}
-
-app-entry-comment-form button {
-    background-color: #003f3f;
-    color: #fff;
-    padding: .5em .75em;
-}
-
-app-entry-comment-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    height: 200px;
 }
 
 .alert {
@@ -163,70 +91,6 @@ app-entry-comment-form textarea {
     color: #fff;
 }
 
-
-
-/*CHECKBOX TOGGLE***********************************/
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
 
 /*COMMENTS***********************************/
 
@@ -246,12 +110,40 @@ input:checked + .slider:before {
     align-content: center;
 }
 
+.comments.hidden {
+    max-height: 0;
+}
+
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 200px;
+}
+
 /*comment submit button*/
 .submit {
   border-radius: 34%;
   background-color: #ccc;
   font-size: 1.2em;
+  padding: .5em .75em;
 
+}
+
+.comments {
+    overflow: hidden;
+    max-height: 1000px;
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+}
+
+
+.comment.odd {
+    background-color: #ccc;
+}
+
+label {
+    display: block;
 }
 
 /*SEARCH***********************************/
@@ -261,4 +153,76 @@ input:checked + .slider:before {
   background-color: #ccc;
   border-radius: 34px;
   font-size: 1.2em;
+}
+
+/* Player Styles *******************************************************/
+
+
+/*BED TIME CSS***/
+
+@font-face {
+  font-family: neon;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+}
+
+.container {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  display: table;
+  margin-left: 40%;
+  padding-top: 30px;
+}
+
+.neon {
+  font-family: neon;
+  color: #db47f5;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #a216ba;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 9vw;
+  line-height: 9vw;
+  text-shadow: 0 0 3vw #2356FF;
+}
+
+.neon {
+  animation: neon 3s ease infinite;
+  -moz-animation: neon 3s ease infinite;
+  -webkit-animation: neon 3s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #e33dff, 0 0 3vw #e33dff, 0 0 10vw #e33dff, 0 0 10vw #e33dff, 0 0 .4vw #f2a3ff, .5vw .5vw .1vw #806914;
+    color: #f2a3ff;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #750c87, 0 0 1.5vw #750c87, 0 0 5vw #750c87, 0 0 5vw #750c87, 0 0 .2vw #750c87, .5vw .5vw .1vw #40340A;
+    color: #aa72b3;
+  }
+}
+
+.flux {
+  animation: flux 5s linear infinite;
+  -moz-animation: flux 5s linear infinite;
+  -webkit-animation: flux 5s linear infinite;
+  -o-animation: flux 5s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #2d5861, 0 0 3vw #2d5861, 0 0 10vw #2d5861, 0 0 10vw #2d5861, 0 0 .4vw #add9d7, .5vw .5vw .1vw #147280;
+    color: #add9d7;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #1e4047, 0 0 1.5vw #1e4047, 0 0 5vw #1e4047, 0 0 5vw #1e4047, 0 0 .2vw #1e4047, .5vw .5vw .1vw #0A3940;
+    color: #0c5566;
+  }
 }

@@ -16,9 +16,9 @@ export class PhotosComponent implements OnInit {
   }
 
   /**
-   * This method is called the comment button is clicked 
-   * @param id 
-   * @param comment 
+   * This method is called the comment button is clicked
+   * @param id
+   * @param comment
    */
   addComment(id: string, name: string, comment: string) {
     this.photos.find((photo: any, index: number) => {
@@ -38,8 +38,8 @@ export class PhotosComponent implements OnInit {
   /**
    * This method is called when the search button is clicked on the page
    * it collects the search term and photo count to display and pass it on to the service to fetch the photos
-   * @param searchTerm 
-   * @param count 
+   * @param searchTerm
+   * @param count
    */
   searchPhotos(searchTerm: string = 'stars', count: string = '100') {
     const perPage = parseInt(count, 10);

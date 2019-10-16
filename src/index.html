@@ -6,35 +6,45 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@{{v5.0.2}}/dist/amplitude.js"></script>
 </head>
 <body>
   <div class="heading">
   <h1>CelestialGram</h1>
 
 
-<!---Playing with creating a button so that excess features can be shut off--->
-  <!-- Rounded switch -->
-  <div>
-<h3>Quiet Mode</h3>OFF
-<label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span>
-</label>ON
-  </div>
 
-  <!---Just want audio to auto play if switch is on--->
+
+  <!---
 <br>
-              <audio controls="controls">
-                <source src="/audio/Relax.ogg"/>
-                <source src="/audio/Relax.mp3"/>
+                <audio controls>
+                <source src="./assets/audio/Relax.ogg" type="audio/ogg"/>
+                <source src="./assets/audio/Sleep.mp3" type="audio/mp3"/>
                   Your browser does not support the
-                  <code>audio</code> element.
+                  audio element.
           </audio>
-      </div>
+Just want audio to auto play if switch is on--->
+
+  <article>
+	<div class="cont">
+		<h3>Calm Music</h3>
+		<time>By mind mave</time>
+	</div>
+	<audio class="audio" controls="controls">
+    <source src="./assets/audio/Relax.ogg" type="audio/ogg"/>
+    <source src="./assets/audio/Sleep.mp3" type="audio/mp3"/>
+	</audio>
+</article>
 
 
 
   </div>
   <app-root></app-root>
+
+  <div class="container">
+  <div class="neon">Bed</div>
+  <div class="flux">Time</div>
+</div>
+
 </body>
 </html>
