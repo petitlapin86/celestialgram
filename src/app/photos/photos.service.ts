@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import * as faker from 'faker';
 
 @Injectable({
   providedIn: 'root'
@@ -22,22 +23,31 @@ export class PhotosService {
       .pipe(
         map((data: any) => {
           const images: [] = data.results;
-          return images.map((image: any) => {
-            image.comments = [];
-            image.showActions = false;
-            return image;
-          });
+          const fakeComments = this.getFakeComments(images.length);
+
+          return images
+            .map((image: any) => {
+              image.comments = [];
+              return image;
+            })
+            .map((image: any, index: number) => {
+              image.comments.push(fakeComments[index]);
+              return image;
+            });
         })
       );
   }
 
-  //******************testing this here
-  // addComment(entryId: number, comment: { name: string; comment: string }) {
-  //   return this.http
-  //     .post(`/app/photos/${entryId}/comments`, comment)
-    //   .toPromise();
-  // }
+  // use faker.js library to generate fake comments for the number of photos returned from api
+  getFakeComments(count: number) {
+    const fakeComments = [];
+    for (let i = 0; i < count; i++) {
+      fakeComments.push({
+        name: faker.name.findName(),
+        body: faker.lorem.sentence()
+      });
+    }
 
-
-
+    return fakeComments;
+  }
 }

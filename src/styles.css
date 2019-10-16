@@ -11,7 +11,7 @@
 /* GLOBAL styles CSS*/
 
 /* HTML5 CUSTOM CURSOR*/
-* {  cursor: url(./assets/cursor/cursor.png), url(./assets/cursor/triangletiny.cur), url(./assets/cursor/trianglecopy.png), auto;
+* {  cursor: url(./assets/cursor/cursor.png), auto;
 }
 
 body {
@@ -27,8 +27,8 @@ body {
 	background-color: #7C8F93;
 	border-radius: 2px;
 	width: 100%;
-	padding: 10px;
-	margin: 45px auto 25px;
+	padding: 15px;
+	margin: 10px auto 25;
 	position:relative;
 	text-align:center;
 	line-height: 1;
@@ -44,7 +44,8 @@ button {
   font-size: .75em;
   letter-spacing: .1em;
   outline: none;
-  padding: .75em 2em;
+  padding: .5em 1em;
+  margin: 5px;
   position: relative;
   text-transform: uppercase;
 }
@@ -55,96 +56,20 @@ button {
    color: #add9d7;
    text-align: center;
    font-family: neon;
+   margin-bottom: 15px;
    text-shadow: 0 0 1vw #0c5566;
  }
-
- h2 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 footer {
     clear: both;
 }
 
-.actions {
-    padding: 1em 0;
-}
-
-.liked {
-    color: #00aaff;
-}
 
 img {
     display: block;
     max-width: 100%;
     min-width: 100%;
     height: auto;
-}
-
-.alert {
-    background-color: #cdcdcd;
-    color: #000;
-}
-
-.alert.alert-danger {
-    background-color: #9a0000;
-    color: #fff;
-}
-
-/*COMMENTS***********************************/
-
-/*comment container*/
-.message {
-  margin-top: 0;
-  padding: .5em 0;
-  width: 260px;
-  background-color: pink;
-  align-content: center;
-}
-
-/*comment box*/
-.comment {
-    padding: .5em 1em;
-    background-color: white;
-    align-content: center;
-}
-
-.comments.hidden {
-    max-height: 0;
-}
-
-textarea {
-    width: 100%;
-    box-sizing: border-box;
-    height: 200px;
-}
-
-/*comment submit button*/
-.submit {
-  border-radius: 34%;
-  background-color: #ccc;
-  font-size: 1.2em;
-  padding: .5em .75em;
-
-}
-
-.comments {
-    overflow: hidden;
-    max-height: 1000px;
-    -webkit-transition: max-height 0.8s;
-    -moz-transition: max-height 0.8s;
-    transition: max-height 0.8s;
-}
-
-
-.comment.odd {
-    background-color: #ccc;
-}
-
-label {
-    display: block;
 }
 
 /*END OF SCROLL NEON TEXT CSS********************/

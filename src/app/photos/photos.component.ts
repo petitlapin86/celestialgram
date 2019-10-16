@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotosService } from './photos.service';
 
+export interface Comment {
+  name: string;
+  body: string;
+}
+
 @Component({
-  selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.css']
+  selector: 'app-photos', //define component name
+  templateUrl: './photos.component.html', //link to view
+  styleUrls: ['./photos.component.css'] //link to css
 })
-export class PhotosComponent implements OnInit {
+export class PhotosComponent implements OnInit { //create photos component class
   photos: any[];
 
   constructor(private photosService: PhotosService) {}
@@ -16,17 +21,14 @@ export class PhotosComponent implements OnInit {
   }
 
   /**
-   * This method is called the comment button is clicked
-   * @param id
+   * This method is called when the comment button is clicked
    * @param comment
+   * @param body
    */
-  addComment(id: string, name: string, comment: string) {
+  addComment(comment: Comment, photoId: string) {
     this.photos.find((photo: any, index: number) => {
-      if (photo.id === id) {
-        photo.comments.push({
-          name,
-          comment
-        });
+      if (photo.id === photoId) {
+        photo.comments.push({ ...comment });
         this.photos[index] = photo;
         return true;
       }
@@ -47,7 +49,6 @@ export class PhotosComponent implements OnInit {
 
     this.photosService.getPhotos(searchTerm, perPage).subscribe(data => {
       this.photos = data;
-      console.log(this.photos);
     });
   }
 }

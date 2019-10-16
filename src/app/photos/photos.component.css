@@ -1,18 +1,5 @@
 
-  /*
-.photos {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.photo {
-  flex: 0 0 25%;
-}
- */
-
-
-/*new code below to try for grid layout*/
-
+/*IMAGE layout*******************************/
 ul.grid{
 	list-style: none;
 	width: 800px;
@@ -23,6 +10,8 @@ ul.grid{
 ul.grid li{
 	padding: 2px;
 	float:left;
+	width:260px;
+
 }
 
 ul.grid li img{
@@ -30,4 +19,10 @@ ul.grid li img{
 	height:260px;
 	display:block;
 	border:none;
+}
+
+/*specific addtional margin for photos buttons*/
+/*rest of button styling is in global style.css*/
+button {
+	margin-bottom: 20px;
 }

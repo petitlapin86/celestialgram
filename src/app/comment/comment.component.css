@@ -1,0 +1,51 @@
+/*COMMENTS***********************************/
+
+/*comment container*/
+.comment {
+    padding: .5em;
+    background-color: white;
+    align-content: center;
+    height: 100px;
+    overflow: scroll;
+    display: block;
+}
+
+.comments.hidden {
+    max-height: 0;
+}
+
+/*COMMENT FORM INPUT*/
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    height: 75px;
+}
+
+.comments {
+    overflow: hidden;
+    max-height: 1000px;
+    -webkit-transition: max-height 0.8s;
+    -moz-transition: max-height 0.8s;
+    transition: max-height 0.8s;
+}
+
+label {
+    display: block;
+}
+
+/*Specific to comment button*/
+/*Remainder of button styling is in global style.css*/
+button {
+  margin-left: 20%;
+}
+
+/*COMMENT VALIDATION*/
+.alert {
+    background-color: #cdcdcd;
+    color: #000;
+}
+
+.alert.alert-danger {
+    background-color: #f2a3ff;
+    color: #fff;
+}

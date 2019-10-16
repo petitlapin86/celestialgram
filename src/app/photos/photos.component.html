@@ -1,48 +1,15 @@
+<!--this is the photos view-->
 <!-- A simple form to make searching of photos easy and configurable -->
-
-<div>
-  <select #photoName>
-    <option value="stars">Stars</option>
-    <option value="clouds">Clouds</option>
-    <option value="sheep">Sheep</option>
-    <option value="sunset">Sunset</option>
-  </select>
-
-  <button (click)="searchPhotos(photoName.value)">
-      Search
-    </button>
+<div> <!--the API call is actually the same just changing the parameter for each button-->
+  <button (click)="searchPhotos('stars')">Stars</button>
+  <button (click)="searchPhotos('clouds')">Clouds</button>
+  <button (click)="searchPhotos('sunset')">Sunset</button>
+  <button (click)="searchPhotos('sheep')">Sheep</button>
 </div>
 
-<ul class="grid">
-  <li *ngFor="let photo of photos">
-    <img
-      (click)="photo.showActions = !photo.showActions"
-      src="{{ photo.urls.small }}"
-      alt="{{ photo.alt_description }}"
-    />
-
-   <!----This is the simplified form that works
-    <!----Emoji Button
-    <form>
-    <div *ngIf="photo.showActions" class="actions">
-      <button
-        type="button"
-        (click)="isLiked = !isLiked"
-        [ngClass]="{ liked: isLiked }"
-      >
-        ❤️
-      </button>
-      <br>
-      <!---A textarea & button to add comment to a photo
-      <div class="message">
-      <input #name type="text" placeholder="name">
-      <br>
-      <textarea rows="5" #commentBox></textarea>
-      <br>
-      <button type="button" class="submit" (click)="addComment(photo.id, name.value, commentBox.value)">
-        Submit
-      </button>
-
+<ul class="grid"> <!--create a layout for photos-->
+  <li *ngFor="let photo of photos"> <!--loop through all photos-->
+    <img src="{{ photo.urls.small }}" alt="{{ photo.alt_description }}" /> <!--.small is one of the documentation choices from unsplash api-->
 
     <!----comments
     <div class="comments">
@@ -54,35 +21,15 @@
 </form>
 --->
 
-<!--COMMENT FORM--->
-
-<form #commentForm="ngForm" novalidate> <!--create a local variable #commentForm / noValidate disables browsers built in validation so i can customize validation messages--->
- <div *ngIf="photo.showActions" class="actions">
-   <div> <!--NAME--->
-       <label for="name">Name</label>
-       <!---NAME VALIDATION-->
-       <input type="text" name="name" [(ngModel)]="name" required minlength="3" #nameField="ngModel" [ngStyle]="{'outline-color': nameField.dirty && nameField.valid ? 'green' : undefined }"/> <!--2way data binding & create a local variable #nameField -->
-       <div class="alert alert-danger" *ngIf="(commentForm.submitted || nameField.touched) && nameField.errors">
-           <div [hidden]="!nameField.errors.required">Name is required</div>
-           <div [hidden]="!nameField.errors.minlength">Name must be a minimum of 3 characters long</div>
-       </div> <!--close validation--->
-   </div> <!--close name input-->
-   <div> <!--COMMENT--->
-       <label for="comment">Comment</label>
-       <!---COMMENT VALIDATION-->
-       <textarea name="comment" [(ngModel)]="comment" required minlength="3" #commentField="ngModel" [ngStyle]="{'outline-color': commentField.dirty && commentField.valid ? 'green' : undefined }"></textarea> <!--2way data binding & create local variable #commentField -->
-       <div class="alert alert-danger" *ngIf="(commentForm.submitted || commentField.touched) && commentField.errors">
-           <div [hidden]="!commentField.errors.required">Comment is required</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
-           <div [hidden]="!commentField.errors.minlength">Comment must be a minimum of 3 characters long</div> <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
-       </div> <!--close validation--->
-   </div> <!--close comment input-->
-   <div> <!--BUTTON--->
-       <button>Submit</button>
-   </div>
-   </div> <!--closes the ngif-->
-</form> <!--close tag form--->
-
-
-
+    <!--COMMENTS WITH FORM
+      (onAddComment): wait for a "onAddComment" event to be emitted from "comment.component.ts"
+      and then call addComment method. The $event will be the argument passed from
+      "comment.component.ts" which is the user name and comment body.
+      [comments]: pass each photo comments to app-comment to display
+      --->
+    <app-comment
+      (onAddComment)="addComment($event, photo.id)"
+      [comments]="photo.comments"
+    ></app-comment>
   </li>
 </ul>

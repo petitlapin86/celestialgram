@@ -1,0 +1,85 @@
+<!----This is the comment view--->
+
+<div class="comment">
+  <!--comment form button collapse & expand-->
+  <button (click)="toggleCommentForm()">
+    {{ showCommentForm ? '- Collapse form' : '+ Add comment' }}
+    <!-- show dynamic text depending on the status of showCommentForm -->
+  </button>
+
+ <!--comment form-->
+ <!--if comment form is toggled onto show -->
+  <form
+    *ngIf="showCommentForm"
+    (submit)="addComment()"
+    [formGroup]="commentForm"
+  >
+    <div class="actions">
+      <div>
+        <!--NAME input--->
+        <label for="name">Name</label>
+        <!---NAME VALIDATION-->
+        <input
+          type="text"
+          formControlName="name"
+          [ngStyle]="{
+            'outline-color': !name.invalid && !name.touched ? 'green' : 'red'
+          }"
+        />
+
+        <div
+          class="alert alert-danger"
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+        >
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">
+            Name must be a minimum of 3 characters long
+          </div>
+        </div>
+        <!--close validation--->
+      </div>
+      <!--close name input-->
+
+      <div>
+        <!--COMMENT input--->
+        <label for="comment">Comment</label>
+        <!---COMMENT VALIDATION-->
+        <textarea
+          formControlName="body"
+          [ngStyle]="{
+            'outline-color': !body.invalid && !body.touched ? 'green' : 'red'
+          }"
+        ></textarea>
+
+        <div
+          class="alert alert-danger"
+          *ngIf="body.invalid && (body.dirty || body.touched)"
+        >
+          <div *ngIf="body.errors.required">
+            Comment body is required
+          </div>
+          <!--show the field only when field is left blank. toggle the attribute on when expression evaluates to true.--->
+          <div *ngIf="body.errors.minlength">
+            Comment body must be a minimum of 3 characters long
+          </div>
+        </div>
+        <!--close validation--->
+      </div>
+      <!--close comment input-->
+      <div>
+        <!--disable BUTTON when form is invalid--->
+        <button [disabled]="!commentForm.valid">Submit</button>
+      </div>
+    </div>
+    <!--closes the ngif-->
+  </form>
+  <!--close tag form--->
+
+ <!---Show comments--->
+  <ul>
+    <li *ngFor="let comment of comments">
+      {{ comment.name }}: {{ comment.body }}
+    </li>
+  </ul>
+
+</div>

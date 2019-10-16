@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PhotosComponent } from './photos.component';
 import { PhotosService } from './photos.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommentComponent } from '../comment/comment.component';
 
 @NgModule({
-  declarations: [PhotosComponent],
+  declarations: [PhotosComponent, CommentComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [PhotosService],
-  exports:[PhotosComponent]
+  exports:[PhotosComponent, CommentComponent]
 })
 export class PhotosModule { }
