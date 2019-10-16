@@ -1,10 +1,11 @@
 # MyPhotosApp
+By Paige Madeline Jones for BU CS701 Rich Internet Application Development
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
 ## Development server
 1.
-npx npm install then
+npm install then
 2.
 npm start
 

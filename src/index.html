@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,45 +6,47 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/amplitudejs@{{v5.0.2}}/dist/amplitude.js"></script>
 </head>
 <body>
   <div class="heading">
-  <h1>CelestialGram</h1>
+    <h1>CelestialGram</h1>
 
-
-
-
-  <!---
-<br>
-                <audio controls>
-                <source src="./assets/audio/Relax.ogg" type="audio/ogg"/>
-                <source src="./assets/audio/Sleep.mp3" type="audio/mp3"/>
-                  Your browser does not support the
-                  audio element.
-          </audio>
-Just want audio to auto play if switch is on--->
-
-  <article>
-	<div class="cont">
-		<h3>Calm Music</h3>
-		<time>By mind mave</time>
-	</div>
-	<audio class="audio" controls="controls">
-    <source src="./assets/audio/Relax.ogg" type="audio/ogg"/>
-    <source src="./assets/audio/Sleep.mp3" type="audio/mp3"/>
-	</audio>
-</article>
-
-
-
+<!--MUSIC PLAYER-->
+    <audio id="testAudio" hidden>
+      <source src="./assets/audio/Relax.ogg" type="audio/ogg"/>
+      <source src="./assets/audio/Sleep.mp3" type="audio/mp3"/>
+    </audio>
+<!--MUSIC PLAYER BUTTON-->
+    <button id="playAudio">Play Music</button>
   </div>
-  <app-root></app-root>
 
+<!--ANGULAR APP-->
+<app-root></app-root>
+
+
+  <!--END OF SCROLL TEXT-->
   <div class="container">
-  <div class="neon">Bed</div>
-  <div class="flux">Time</div>
-</div>
+    <div class="neon">Bed</div>
+    <div class="neon2">Time</div>
+  </div>
+
+
+<!--MUSIC PLAYER JS-->
+  <script>
+    document.getElementById("playAudio").addEventListener("click", function(){
+    	var audio = document.getElementById('testAudio');
+      if(this.className == 'is-playing'){
+        this.className = "";
+        this.innerHTML = "Play Music"
+        audio.pause();
+      }else{
+        this.className = "is-playing";
+        this.innerHTML = "Pause Music";
+        audio.play();
+      }
+    });
+
+  </script>
 
 </body>
 </html>

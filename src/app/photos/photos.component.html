@@ -8,20 +8,6 @@
     <option value="sunset">Sunset</option>
   </select>
 
-  <!---<div>
-  <div #photoName>
-    <button value="stars" (click)="searchPhotos(photoName.value)">Stars</button>
-    <button value="clouds" (click)="searchPhotos(photoName.value)">Clouds</button>
-    <button value="sheep" (click)="searchPhotos(photoName.sheep)">Sheep</button>
-  </div>
-  ---->
-  <!-- <input  type="text" value="stars" placeholder="search photos" /> -->
-  <!-- <input #photoCount type="number" value="100" placeholder="per page" /> -->
-
-  <!-- <button (click)="searchPhotos(photoName.value, photoCount.value)">
-    Search
-  </button> -->
-
   <button (click)="searchPhotos(photoName.value)">
       Search
     </button>
@@ -69,8 +55,6 @@
 --->
 
 <!--COMMENT FORM--->
-<!--(submit)="onSubmit()"-->
-
 
 <form #commentForm="ngForm" novalidate> <!--create a local variable #commentForm / noValidate disables browsers built in validation so i can customize validation messages--->
  <div *ngIf="photo.showActions" class="actions">
